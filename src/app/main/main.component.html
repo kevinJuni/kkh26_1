@@ -1,0 +1,11 @@
+<p>
+  main works!
+</p>
+<ul>
+  <li *ngFor="let group of grouplist">
+      <a [routerLink]="['/memberlist',group.group_id]">
+        {{group.team_name}}
+      </a>
+  </li>
+</ul>
+<router-outlet></router-outlet>
