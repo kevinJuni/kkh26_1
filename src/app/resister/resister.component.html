@@ -2,13 +2,13 @@
     search2 works!
   </p>
   <input type="text" #input (keyup)="showPlaceList(input)">
-  <ul>
-    <li *ngFor = "let native_list of native_place" (click)="selectPlce(native_list)">
+  <ul *ngIf="show">
+    <li *ngFor = "let native_list of native_place" (click)="selectPlce(native_list,input)">
       {{native_list.place}}
     </li>
   </ul>
-  <ul>
-    <li *ngFor = "let external_list of external_place" (click)="selectPlce(external_list)">
+  <ul *ngIf="show"> 
+    <li *ngFor = "let external_list of external_place" (click)="selectPlce(external_list,input)">
       {{external_list.place}}
     </li>
   </ul>
@@ -29,4 +29,29 @@
       </div>
     </form>
     <hr/>
-    <button (click)="datetest()">aaa</button>
+    <button (click)="dpsQkdgkrl()">aasasasasa</button>
+    <input type="checkbox" [(ngModel)]="dpsQkd">
+    <div *ngIf="!dpsQkd">
+    <ul>
+      <li *ngFor="let i of user">
+        {{i.member.name}}
+        <input type="number" (keyup)="makeTotalmoney($event)" [(ngModel)]="i.money" placeholder="0">
+      </li>
+      <h1>total : <span>{{total}}</span></h1>
+    </ul>
+  </div>
+  <div *ngIf="dpsQkd">
+    <h1>
+      total: <input type="text" [(ngModel)]="total">
+    </h1>
+    <li *ngFor="let i of user">
+      {{i.member.name}}
+      <input type="checkbox" [(ngModel)]="i.check">
+      {{i.check}}
+    </li>
+  </div>
+    <button (click)="test()">123123123</button>
+    <button (click)="addPayment()">12312333333</button>
+
+
+    

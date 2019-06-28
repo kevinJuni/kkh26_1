@@ -7,13 +7,18 @@ import {NgbPaginationModule, NgbAlertModule} from '@ng-bootstrap/ng-bootstrap';
 import { RouterModule } from '@angular/router';
 import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 
+
+
+
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { MainComponent } from './main/main.component';
 import { ResisterComponent } from './resister/resister.component';
 import { HttpClient } from '@angular/common/http';
-import { MemberlistComponent } from './memberlist/memberlist.component';
+import { MemberlistComponent, NgbdModalContent } from './memberlist/memberlist.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -21,8 +26,10 @@ import { MemberlistComponent } from './memberlist/memberlist.component';
     LoginComponent,
     MainComponent,
     ResisterComponent,
-    MemberlistComponent
-  ],
+    MemberlistComponent,
+    NgbdModalContent
+    
+  ],entryComponents:[NgbdModalContent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -36,8 +43,13 @@ import { MemberlistComponent } from './memberlist/memberlist.component';
       {
         path:'memberlist',
         component:MemberlistComponent
+      },
+      {
+        path:'resister',
+        component:ResisterComponent
       }
-    ])
+    ]),
+    BrowserAnimationsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

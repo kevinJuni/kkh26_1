@@ -1,5 +1,7 @@
 export interface User {
     administrator: number,
+    money:any  ,
+    check:boolean,
             date_time: string,
             gm_id: number,
             group_id: number,
@@ -18,7 +20,8 @@ export interface User {
                 nick_name: string,
                 picture_link: string
             },
-            member_id: number,
+            member_id: number
+            
 }
 
 export interface Group{

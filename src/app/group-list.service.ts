@@ -9,9 +9,19 @@ import { PaymentList, User, Group } from './grouplist';
 export class GroupListService implements OnInit {
   public grouplist=[];
   public userlist=[];
-  constructor(
+  constructor( private http:HttpClient
   ) { }
-
+  url="https://loopay.crontiers.com/api/group_list";
+  postGroupList(){
+    const body = {
+      "group_list":{ 
+        "id":"1",
+        "limit":30,
+        "offset":0
+      }
+    }
+    return this.http.post<PaymentList>(this.url, body)
+  }
   ngOnInit(){
     
   

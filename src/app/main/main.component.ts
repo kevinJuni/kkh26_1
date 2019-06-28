@@ -12,37 +12,23 @@ export class MainComponent implements OnInit {
 
   constructor(
     private http:HttpClient,
-    private groupList:GroupListService
+    private grouplist:GroupListService
   ) { 
   }
-
   test(){
-    
-  }
-  //가져오는 주소 
-  url="https://loopay.crontiers.com/api/group_list";
-  subuserlist:any;
-  subgrouplist:any;
-  userlist:User;
-  grouplist:Group;
-  member_id:number;
-  submember_id:any;
-  ngOnInit() {
-        const body = {
-      "group_list":{ 
-        "id":"1",
-        "limit":30,
-        "offset":0
-      }
-    }
-    this.http.post<PaymentList>(this.url,body).subscribe( res => {  
-      this.subuserlist=JSON.stringify(res.user_list);
-      this.userlist = JSON.parse(this.subuserlist);
-      this.subgrouplist = JSON.stringify(res.group_list);
-      this.grouplist = JSON.parse(this.subgrouplist);
-      this.groupList.grouplist.push(this.grouplist);
-      this.groupList.userlist.push(this.userlist);
-  })
+    console.log(this.userList)
   }
 
+  groupList:any;
+  userList:any;
+
+  ngOnInit() {
+       
+    this.grouplist.postGroupList().subscribe(
+      res => {
+            this.groupList = res.group_list
+            this.userList = res.user_list
+            } 
+    )
+  }
 }
